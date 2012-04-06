@@ -10,8 +10,8 @@ namespace AVLTree
         public AVLNode root = null;
 
         public Methods()
-        { 
-        
+        {
+
         }
 
         public void AddRoot(int value)
@@ -29,7 +29,7 @@ namespace AVLTree
                 else
                     AddNode(node.right, value);
             }
-                // Goes to left
+            // Goes to left
             else if (value < node.value)
             {
                 if (node.left == null)
@@ -39,14 +39,14 @@ namespace AVLTree
             }
         }
 
-        public void DestroyNode(AVLNode node, int value)
-        {
-            if (node.left == null && node.right == null && node.value == value)
-            { 
-                
-            }
+        //public void DestroyNode(AVLNode node, int value)
+        //{
+        //    if (node.left == null && node.right == null && node.value == value)
+        //    { 
 
-        }
+        //    }
+
+        //}
 
     }
 }

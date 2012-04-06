@@ -11,7 +11,9 @@ namespace AVLTree
 {
     public partial class Form1 : Form
     {
-        Methods AVL = new Methods();        
+        Methods AVL = new Methods();
+        
+        int x = 400, y = 20;
 
         public Form1()
         {
@@ -26,29 +28,39 @@ namespace AVLTree
             {
                 AVL.AddNode(AVL.root, value);
             }
-            //else
-            //{
-            //    AVL.AddRoot(value);
-            //    //AVL.root = new AVLNode(value);
-            //}
+            else
+            {
+                AVL.AddRoot(value);
+            }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            System.Drawing.Graphics graphicObject;
-            graphicObject = this.CreateGraphics();
+            Graphics g = this.CreateGraphics();
+            RefreshAVLTree(g);
+        }
 
-            Pen mypen = new Pen(System.Drawing.Color.LawnGreen, 3);
-            mypen.Color = System.Drawing.Color.RoyalBlue;
+        private void RefreshAVLTree(Graphics g)
+        {
+            AVLNode aux = AVL.root;
+            RefreshAVLTreeHelper(x, y, aux, g, 110);
+        }
 
-            //mypen.DashStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            //mypen.Width = 3;
-            //graphicObject.DrawLine(mypen, 20, 20, 200, 210);
-            //graphicObject.DrawRectangle(mypen, 10, 10, 200, 210);
-            //graphicObject.DrawEllipse(mypen, new Rectangle(10, 10, 200, 210));
-            //graphicObject.DrawString("Dibujando en C#", new System.Drawing.Font("Helvetica", 40, FontStyle.Underline), new SolidBrush(System.Drawing.Color.Red), 900, 5);
-            //Rectangle rectangle = new Rectangle(10, 10, 200, 210);
-            //graphicObject.DrawRectangle(mypen, rectangle);
+        private void RefreshAVLTreeHelper(int x, int y, AVLNode aux, Graphics g, int factor)
+        {
+            Pen mypen = new Pen(System.Drawing.Color.RoyalBlue);
+            if (aux == null)
+                return;
+            else
+            {
+                g.DrawEllipse(mypen, x, y, 15, 15);
+                RefreshAVLTreeHelper(x - factor, y +30, aux.left, g, factor / 2);
+                RefreshAVLTreeHelper(x + factor, y +30, aux.right, g, factor / 2);
+                if (aux.left != null)
+                    g.DrawLine(mypen, x + 7, y + 15, x - factor + 7, y + 30);
+                if (aux.right != null)
+                    g.DrawLine(mypen, x + 7, y + 15, x + factor + 7, y + 30);
+            }
         }
 
     }

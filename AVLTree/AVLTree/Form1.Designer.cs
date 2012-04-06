@@ -34,7 +34,7 @@
             // 
             // buttonAddNode
             // 
-            this.buttonAddNode.Location = new System.Drawing.Point(487, 38);
+            this.buttonAddNode.Location = new System.Drawing.Point(867, 38);
             this.buttonAddNode.Name = "buttonAddNode";
             this.buttonAddNode.Size = new System.Drawing.Size(75, 23);
             this.buttonAddNode.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // textBoxNode
             // 
-            this.textBoxNode.Location = new System.Drawing.Point(472, 12);
+            this.textBoxNode.Location = new System.Drawing.Point(852, 12);
             this.textBoxNode.Name = "textBoxNode";
             this.textBoxNode.Size = new System.Drawing.Size(100, 20);
             this.textBoxNode.TabIndex = 1;
@@ -53,11 +53,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 562);
+            this.ClientSize = new System.Drawing.Size(984, 562);
             this.Controls.Add(this.textBoxNode);
             this.Controls.Add(this.buttonAddNode);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "AVL Tree";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();
